@@ -1,0 +1,34 @@
+/* Define to the current Byfl version. */
+#define BYFL_PACKAGE_VERSION "@BYFL_PACKAGE_VERSION@"
+
+/* Define as the current Git branch. */
+#cmakedefine BYFL_GIT_BRANCH "@BYFL_GIT_BRANCH@"
+
+/* Define as the SHA-1 hash for the current Byfl Git commit. */
+#cmakedefine BYFL_GIT_SHA1 "@BYFL_GIT_SHA1@"
+
+/* Define as a canonical target system description. */
+#cmakedefine TARGET_DESCRIPTION "@TARGET_DESCRIPTION@"
+
+/* Define as the LLVM major/minor version numbers. */
+#define LLVM_VERSION_MAJOR @LLVM_VERSION_MAJOR@
+#define LLVM_VERSION_MINOR @LLVM_VERSION_MINOR@
+#define LLVM_PACKAGE_VERSION "@LLVM_PACKAGE_VERSION@"
+
+/* Define if the compiler and linker support weak function aliases. */
+#cmakedefine HAVE_WEAK_ALIASES
+
+/* Define if the crt_externs.h include file exists. */
+#cmakedefine HAVE_CRT_EXTERNS_H
+
+/* Define if the _NSGetArgv function is available. */
+#cmakedefine HAVE__NSGETARGV
+
+/* Define NUM_LLVM_OPCODES as one more than the maximum-valued opcode in the
+ * LLVM IR and NUM_LLVM_OPCODES_POW2 as NUM_LLVM_OPCODES+2 rounded up to a
+ * power of two. */
+#define NUM_LLVM_OPCODES @NUM_LLVM_OPCODES@
+#define NUM_LLVM_OPCODES_POW2 @NUM_LLVM_OPCODES_POW2@
+
+/* Define if the asprintf function is available. */
+#cmakedefine HAVE_ASPRINTF
