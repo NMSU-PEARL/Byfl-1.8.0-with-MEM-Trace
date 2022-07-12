@@ -368,12 +368,21 @@ void bf_reset_bb_tallies (void)
   bb_totals.reset();
 }
 
+extern "C"
+void bf_tally_bb_entrance (bf_symbol_info_t* syminfo, uint64_t bb_id,
+                            uint64_t num_insts)
+{
+  fprintf(stderr, "BB START: %lx\n", bb_id);
+}
+
 // Keep track of dynamic basic-block accesses given a unique identifier and
 // static basic-block size in instructions.
 extern "C"
 void bf_tally_bb_execution (bf_symbol_info_t* syminfo, uint64_t bb_id,
                             uint64_t num_insts)
 {
+  fprintf(stderr, "BB DONE: %lx\n", bb_id);
+
   if (bf_suppress_counting)
     return;
   BBAccessInfo* bb_info;

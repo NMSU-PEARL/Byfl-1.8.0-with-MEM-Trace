@@ -243,6 +243,7 @@ namespace bytesflops_pass {
     Function* reuse_dist_prog;   // Pointer to bf_reuse_dist_addrs_prog()
     Function* memset_intrinsic;  // Pointer to LLVM's memset() intrinsic
     Function* access_cache;      // Pointer to bf_touch_cache()
+    Function* tally_bb_entry;    // Pointer to bf_tally_bb_entrance()
     Function* tally_bb_exec;     // Pointer to bf_tally_bb_execution()
     Function* track_stride;      // Pointer to bf_track_stride()
     StringMap<Constant*> func_name_to_arg;   // Map from a function name to an IR function argument

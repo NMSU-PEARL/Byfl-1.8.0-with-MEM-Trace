@@ -706,6 +706,11 @@ void BytesFlops::insert_end_bb_code (Module* module, KeyType_t funcKey,
     arg_list.push_back(func_syminfo);
     arg_list.push_back(ConstantInt::get(globctx, APInt(64, randnum)));
     arg_list.push_back(ConstantInt::get(globctx, APInt(64, num_insts)));
+    BasicBlock *bb = insert_before->getParent();
+    Function *fun = bb->getParent();
+    BasicBlock::iterator start_inst = bb->getFirstInsertionPt();
+    fprintf(stderr, "BasicBlock: %lx: (%s, %s)\n", randnum, fun->getName().str().c_str(), bb->getName().str().c_str());
+    callinst_create(tally_bb_entry, arg_list, &*start_inst);
     callinst_create(tally_bb_exec, arg_list, &*insert_before);
     callinst_create(accum_bb_tallies, &*insert_before);
     arg_list.resize(1);    // Retain only the bf_symbol_info_t* argument.

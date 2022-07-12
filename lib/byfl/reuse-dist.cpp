@@ -350,7 +350,7 @@ private:
   vector<uint64_t> hist;    // Histogram of the number of times each reuse distance was observed
   uint64_t unique_entries;  // Number of unique addresses (infinite reuse distance)
   RDnode* dist_tree;        // Tree of reuse distances
-  FILE* mem_trace_fp;
+  // FILE* mem_trace_fp;
 
 public:
   // Initialize our various fields.
@@ -358,7 +358,7 @@ public:
     clock = 0;
     unique_entries = 0;
     dist_tree = nullptr;
-    mem_trace_fp = fopen("mem_trace_addr_only.dat", "w");
+    // mem_trace_fp = fopen("mem_trace_addr_only.dat", "w");
   }
 
   // Incorporate a new address into the reuse-distance histogram.
@@ -378,8 +378,9 @@ public:
 
 void ReuseDistance::dump_mem_trace(uint64_t address)
 {
-  fprintf(mem_trace_fp, "%p\n", (void *)address);
-  fflush(mem_trace_fp);
+  // fprintf(mem_trace_fp, "%p\n", (void *)address);
+  fprintf(stderr, "%p\n", (void *)address);
+  // fflush(mem_trace_fp);
 }
 
 // Incorporate a new address into the reuse-distance histogram.

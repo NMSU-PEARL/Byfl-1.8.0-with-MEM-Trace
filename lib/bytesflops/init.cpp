@@ -339,13 +339,15 @@ namespace bytesflops_pass {
       report_bb_tallies =
         declare_extern_c(void_func_result, "bf_report_bb_tallies", &module);
 
-      // Declare bf_tally_bb_execution().
+      // Declare bf_tally_bb_entrance and bf_tally_bb_execution().
       func_args.clear();
       func_args.push_back(ptr_to_syminfo_arg);
       func_args.push_back(uint64_arg);
       func_args.push_back(uint64_arg);
       void_func_result =
         FunctionType::get(Type::getVoidTy(globctx), func_args, false);
+      tally_bb_entry = 
+        declare_extern_c(void_func_result, "bf_tally_bb_entrance", &module);
       tally_bb_exec =
         declare_extern_c(void_func_result, "bf_tally_bb_execution", &module);
     }
